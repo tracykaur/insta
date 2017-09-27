@@ -1,0 +1,19 @@
+<% @allmyphotos.each do |photo| %>
+  <div class="insta-photo">
+  <%= image_tag photo.image_url, alt: photo.comment %>
+  <br>
+  <% if photo.user %>
+  <%= photo.user.email %> <br>
+  <% end %>
+  <%= photo.comment %>
+  <br>
+
+  <%= link_to 'Show', photo %>
+  <%= link_to 'Edit', edit_photo_path(photo) %>
+  <%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
+
+<% end %>
+
+
+<br>
